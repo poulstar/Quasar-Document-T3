@@ -86,11 +86,28 @@ onRequest(null);
 export { columns, rows, pagination, onRequest };
 ```
 
-###### حال در فایل MyPostPage باید کمی تغییر به وجود آوریم. ابتدا در بخش script، متغیر های import شده MyPostComponent را بروز می کنیم.
+###### حال در فایل MyPostPage باید کمی تغییر به وجود آوریم. ابتدا در بخش script، متغیر های import شده MyPostComponent را بروز می کنیم. و بعد profileTemp را از ProfileComponent می گیریم تا کاربر موجود را  شناسایی کنیم
 
 ```bash
 import { columns, rows, pagination, onRequest } from 'components/ts/MyPostComponent';
+import { profileTemp } from 'components/ts/ProfileComponent';
 ```
+###### در script برای بخش delete لازم است کمی تغییر به وجود آوریم، هم متغیری تولید کنیم که آدرس سرور را در خود داشته باشد تا بتوانیم تصاویر را اجرا کنیم و بعد نام کاربر را از profileTemp بگیریم و جا گذاری کنیم.
+
+```bash
+const serverRoute = 'https://openapi.poulstar.org/';
+
+const deletePost = (row: any) => {
+  deletePostParameter.value.id = row.id;
+  deletePostParameter.value.image = serverRoute + row.media[0].url;
+  deletePostParameter.value.title = row.title;
+  deletePostParameter.value.username = profileTemp.value.username;
+  deletePostParameter.value.description = row.description;
+  deletePostParameter.value.modal = !deletePostParameter.value.modal
+};
+```
+
+
 ###### حال نوبت آن است که به بخش template برویم. به تگ q-table مقدار onRequest را می دهیم تا در اثر هر گونه تغییر در شماره صفحه یا نوشته شدن کلمات، جهت فیلتر شدن محتوا، یک درخواست به سمت سرور ارسال کند.
 
 ```bash

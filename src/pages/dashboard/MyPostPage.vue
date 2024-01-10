@@ -85,6 +85,7 @@ import { columns, rows, pagination, onRequest } from 'components/ts/MyPostCompon
 import UserCreatePost from 'components/vue/UserCreatePost.vue';
 import UserUpdatePost from 'components/vue/UserUpdatePost.vue';
 import UserDeletePost from 'components/vue/UserDeletePost.vue';
+import { profileTemp } from 'components/ts/ProfileComponent';
 
 const filter = ref('');
 
@@ -117,11 +118,13 @@ const updatePost = (row: any) => {
   updatePostParameter.value.modal = !updatePostParameter.value.modal
 };
 
+const serverRoute = 'https://openapi.poulstar.org/';
+
 const deletePost = (row: any) => {
   deletePostParameter.value.id = row.id;
-  deletePostParameter.value.image = row.image;
+  deletePostParameter.value.image = serverRoute + row.media[0].url;
   deletePostParameter.value.title = row.title;
-  deletePostParameter.value.username = 'hossein';
+  deletePostParameter.value.username = profileTemp.value.username;
   deletePostParameter.value.description = row.description;
   deletePostParameter.value.modal = !deletePostParameter.value.modal
 };
