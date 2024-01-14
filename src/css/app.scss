@@ -1,0 +1,66 @@
+// app global css in SCSS form
+.auth-background {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../public/images/loginWallpaper.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+.w-400 {
+  width: 400px;
+}
+.avatarBox {
+  background-image: radial-gradient(
+    rgb(245, 246, 240),
+    rgb(2, 136, 209),
+    rgb(5, 77, 139)
+  );
+  width: 100%;
+  height: 300px;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.9);
+}
+.my-card {
+  max-width: 300px;
+  width: 100%;
+}
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  overflow: hidden;
+  align-items: flex-start;
+}
+.overlay-title {
+  font-size: 24px;
+  font-weight: 1000;
+  color: white;
+  padding: 30px 20px 0;
+}
+.overlay-owner {
+  font-size: 12px;
+  color: white;
+  padding: 0px 20px 0;
+}
+.overlay-text {
+  font-size: 14px;
+  color: white;
+  padding: 0 20px 10px;
+  text-align: justify;
+}
